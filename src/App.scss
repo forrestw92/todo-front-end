@@ -1,0 +1,148 @@
+.App {
+  text-align: center;
+  font-size: 1rem;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+  padding: 2rem;
+  -ms-flex-pack: center;
+  margin-top: 4rem;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: transparent;
+  overflow: hidden;
+}
+.todoContainer {
+  max-width: 960px;
+  min-width: 350px;
+  padding: 0.5rem;
+  width: 100%;
+  position: relative;
+  background: #fcfcfc;
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  #showDeleted {
+    position: absolute;
+    right: 1rem;
+    display: flex;
+    height: 2rem;
+  }
+  .todoForm {
+    position: relative;
+    width: 50%;
+    margin: auto;
+    display: flex;
+    @media only screen and (max-width: 500px) {
+      width: 75%;
+    }
+    #addIcon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      display: flex;
+    }
+    #todo-name {
+      width: 100%;
+      height: 2rem;
+      -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+      border: 0;
+      padding: 0 2rem 0 1rem;
+    }
+  }
+  .todoList {
+    padding: 0;
+
+    .todo {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      display: -ms-flexbox;
+      display: flex;
+      flex-flow: column nowrap;
+      list-style: none;
+      margin: 1rem;
+      padding: 0 1rem;
+      -ms-flex-align: center;
+      align-items: center;
+      .todoDetails {
+        transition: all 0.4s;
+        margin-top: 1.5rem;
+        align-self: start;
+        text-align: left;
+        height: 100%;
+      }
+      .todoDetails.hidden {
+        transition: all 0.4s;
+        position: absolute;
+        height: 0rem;
+        z-index: -1;
+        overflow: hidden;
+      }
+      .todoInfo {
+        z-index: 2;
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: white;
+        -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+        .details {
+          transition: transform 0.4s;
+        }
+        .details.open {
+          transform: rotate(180deg);
+        }
+        .details.closed {
+          transform: rotate(360deg);
+        }
+        .todoName {
+          width: 50%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .todoActions {
+          display: flex;
+          flex-flow: row nowrap;
+          height: 100%;
+          width: 100px;
+          justify-content: space-evenly;
+          #done,
+          #delete {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+          }
+        }
+      }
+
+      .todoInfo.done {
+        color: white;
+        background: #001979;
+      }
+      .todoInfo.deleted {
+        background: #d63230;
+        color: white;
+      }
+    }
+  }
+}
